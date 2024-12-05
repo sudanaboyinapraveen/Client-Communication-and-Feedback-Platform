@@ -51,6 +51,8 @@ function App() {
             path="/"
             element={isAuthenticated ? <Navigate to="/home" /> : <Login onLogin={handleLogin} />}
           />
+
+          
        <Route path="/" element={<Login />} />
          <Route path="/signup" element={<Signup/>} />
        <Route path="/home" element={<Home />} />

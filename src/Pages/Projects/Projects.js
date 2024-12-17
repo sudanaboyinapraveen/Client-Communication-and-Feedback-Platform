@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+// import { Navigate } from 'react-router-dom';
 import './Projects.css';
 
+
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
+const [projects, setProjects] = useState([]);
+
 
   // Mock data fetching - replace with real API call in a real app
   useEffect(() => {
@@ -11,13 +14,15 @@ const Projects = () => {
       .then(data => setProjects(data));
   }, []);
 
+ 
+
   return (
     <div className="content-container">
     <div className="projects-container">
       <h1>Your Projects</h1>
       
       <div className="projects-header">
-        <button className="new-project-btn">Start New Project</button>
+        <button className="new-project-btn" >Start New Project</button>
       </div>
 
       <div className="projects-list">

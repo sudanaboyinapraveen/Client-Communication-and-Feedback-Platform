@@ -5,14 +5,7 @@
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
-/* 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #6E33FF, #3310C4);
-} */
+
 
 .login-container, .signup-container {
     display: flex;

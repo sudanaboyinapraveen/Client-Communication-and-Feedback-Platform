@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
 import "./Home.css";
+import Footer from "../Footer/Footer";
 
 function Home() {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -44,7 +46,8 @@ function Home() {
   return (
     <div>
       <div className="content-container">
-        <h2>{message}</h2>
+        {/* <h2>{message}</h2> */}
+       
 
         <div className="home-container">
           <header className="home-header">
@@ -86,7 +89,9 @@ function Home() {
           </section>
         </div>
       </div>
+      <Footer/>
     </div>
+  
   );
 }
 

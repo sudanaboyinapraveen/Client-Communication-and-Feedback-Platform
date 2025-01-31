@@ -1,4 +1,4 @@
-/* Container for projects page */
+/* 
 .projects-container {
     padding: 20px;
     text-align: center;
@@ -10,7 +10,7 @@
     margin-bottom: 20px;
   }
   
-  /* New Project Button */
+
   .new-project-btn {
     padding: 10px 20px;
     background-color: #0056b3;
@@ -25,7 +25,7 @@
     background-color: #004494;
   }
   
-  /* Project List Styles */
+  
   .projects-list {
     display: flex;
     flex-wrap: wrap;
@@ -67,7 +67,7 @@
     background-color: #004494;
   }
   
-  /* Status-based color coding */
+
   .project-card.in-progress {
     background-color: #d1e7ff;
   }
@@ -79,4 +79,305 @@
   .project-card.delayed {
     background-color: #f8d7da;
   }
+   */
+
+   :root {
+    --primary-blue: #2563eb;
+    --slate-100: #f1f5f9;
+    --slate-700: #334155;
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
   
+  .projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .projects-header {
+    margin-bottom: 2rem;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .search-filter {
+    display: flex;
+    gap: 1rem;
+    flex-grow: 1;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background: var(--slate-100);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    flex-grow: 1;
+  }
+  
+  .search-bar input {
+    border: none;
+    background: transparent;
+    margin-left: 0.5rem;
+    width: 100%;
+  }
+  
+  .filter-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--slate-100);
+    border-radius: 8px;
+    padding: 0.5rem;
+  }
+  
+  .filter-dropdown select {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  .new-project-btn {
+    background: var(--primary-blue);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .project-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+  }
+  
+  .project-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.75rem;
+  }
+  
+  .progress-container {
+    height: 8px;
+    background: var(--slate-100);
+    border-radius: 4px;
+    margin: 1rem 0;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: var(--transition);
+  }
+  
+  .project-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .team-avatars {
+    display: flex;
+    align-items: center;
+  }
+  
+  .team-avatars img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: -8px;
+    border: 2px solid white;
+  }
+  
+  .view-details-btn {
+    width: 100%;
+    background: var(--slate-100);
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .view-details-btn:hover {
+    background: var(--primary-blue);
+    color: white;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .controls {
+      flex-direction: column;
+    }
+    
+    .search-filter {
+      width: 100%;
+    }
+  }
+
+
+
+  /* modal */
+  /* ProjectProgressChart.css */
+.progress-chart {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.progress-chart h3 {
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+/* ProjectModal.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2rem;
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+  font-size: 1.5rem;
+  color: #1e293b;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.team-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 80px;
+}
+
+.team-member img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.milestone-item {
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.milestone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.status-planned { color: #3B82F6; }
+.status-inprogress { color: #F59E0B; }
+.status-completed { color: #10B981; }
+
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 1rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

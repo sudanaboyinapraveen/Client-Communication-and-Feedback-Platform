@@ -1,81 +1,182 @@
-/* 
-* {
-    margin: 0;
-    padding: 0;
-} */
-
-
-
-.navbar {
-    display: flex;
+:root {
+    --navbar-bg: #ffffff;
+    --text-primary: #2d3436;
+    --text-secondary: #636e72;
+    --accent-color: #6c5ce7;
+    --hover-bg: #f8f9fa;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --transition: all 0.2s ease;
+  }
+  
+  /* Base Styles */
+  .navbar {
+    background: var(--navbar-bg);
+    box-shadow: var(--shadow);
+    position: fixed;
+    top: 0;
     width: 100%;
+    z-index: 1000;
+  }
+  
+  .navbar-container {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed; /* Make the navbar fixed */
-    top: 0;
-    width: 100%; /* Full width */
-    background-color: #333;
-    padding: 10px;
-    z-index: 9999; /* Ensure it's on top of other content */
-}
-
-.navbar-logo a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-}
-
-.navbar-links {
-    list-style: none;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+  }
+  
+  /* Logo */
+  .navbar-logo .logo-link {
     display: flex;
-    gap: 15px;
-}
-
-.navbar-links li {
-    position: relative;
-}
-
-.navbar-links a {
-    color: white;
+    align-items: center;
+    gap: 0.75rem;
     text-decoration: none;
-    padding: 10px;
-    display: block;
-}
-
-.navbar-links a:hover {
-    background-color: #555;
-    border-radius: 5px;
-}
-
-/* Dropdown Menu */
-.dropdown-content {
-    display: none;
+  }
+  
+  .logo-icon {
+    font-size: 1.5rem;
+  }
+  
+  .logo-text {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  
+  /* Desktop Navigation */
+  .navbar-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: var(--transition);
+  }
+  
+  .nav-link:hover {
+    background: var(--hover-bg);
+    color: var(--accent-color);
+  }
+  
+  .nav-link svg {
+    font-size: 1.1rem;
+  }
+  
+  /* Profile Dropdown */
+  .profile-link {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
     position: absolute;
-    background-color: #333;
     right: 0;
-    top: 40px;
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: white;
-    padding: 10px;
+    top: 100%;
+    background: var(--navbar-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 0.5rem 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+  }
+  
+  .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  
+  .dropdown-item:hover {
+    background: var(--hover-bg);
+    color: var(--accent-color);
+  }
+  
+  .dropdown-item svg {
+    font-size: 1rem;
+  }
+  
+  /* Mobile Menu */
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+  
+  .mobile-menu {
+    display: none;
+    background: var(--navbar-bg);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+  }
+  
+  .mobile-menu.open {
     display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #444;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Push content down to avoid being overlapped by the fixed navbar */
-
-
-
-.content-container {
-    padding-top: 75px; /* Adjust according to the navbar's height */
-}
-
+  }
+  
+  .mobile-menu .nav-item {
+    padding: 0.75rem 1rem;
+  }
+  
+  .mobile-logout {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar-links {
+      display: none;
+    }
+  
+    .mobile-menu-toggle {
+      display: block;
+    }
+  
+    .nav-link {
+      padding: 0.75rem;
+    }
+  
+    .dropdown-menu {
+      position: static;
+      box-shadow: none;
+      background: transparent;
+    }
+  }

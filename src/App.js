@@ -17,6 +17,9 @@ import ProjectScoping from './Pages/ProjectScoping/ProjectScoping';
 import Projects from './Pages/Projects/Projects';
 // import LoginContext from './context/LoginContext';
 import File from './Pages/File/File';
+import Error from './Pages/Error';
+import Report from './Pages/Report/Report';
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -50,7 +53,7 @@ function App() {
          <Routes>
     <Route
             path="/"
-            element={isAuthenticated ? <Navigate to="/home"/> : <Login onLogin={handleLogin} />}
+            element={isAuthenticated ? <Navigate to="/dashboard"/> : <Login onLogin={handleLogin} />}
           />
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup/>} />
@@ -62,6 +65,9 @@ function App() {
         <Route path='/Messages' element={<Messages/>}/>
         <Route path='/files' element={<File/>}/>
         <Route path='/project-planning' element={<ProjectScoping/>}/>
+        <Route path='/reports' element={<Report/>}/>
+        <Route path='*' element={<Error/>}/>
+        
       </Routes>
       </div>
     </>

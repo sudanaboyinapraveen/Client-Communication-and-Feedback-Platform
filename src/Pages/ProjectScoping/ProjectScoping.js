@@ -405,7 +405,7 @@ const ProjectScoping = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/api/project-scope', projectScope);
+      const response = await axios.post('https://client-communication-and-feedback.onrender.com/api/project-scope', projectScope);
       setMessage(response.data.message || 'Project scope submitted successfully!');
       setSubmittedData(projectScope);
       setDeliverables('');

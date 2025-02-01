@@ -11,7 +11,7 @@ const Consultation = () => {
 
   // Fetch consultations - replace with real API in production
   useEffect(() => {
-    fetch('http://localhost:5000/consultations')
+    fetch('https://client-communication-and-feedback.onrender.com/consultations')
       .then((response) => response.json())
       .then((data) => setConsultations(data));
   }, []);
@@ -20,7 +20,7 @@ const Consultation = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Post new consultation - replace with real API call in production
-    fetch('http://localhost:5000/consultations', {
+    fetch('https://client-communication-and-feedback.onrender.com/consultations', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

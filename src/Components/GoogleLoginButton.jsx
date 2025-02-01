@@ -2,7 +2,7 @@ import React from 'react';
 
 function GoogleLoginButton() {
     const handleGoogleLogin = () => {
-        window.location.href = 'http://localhost:5000/auth/google'; // Redirect to Google OAuth
+        window.location.href = 'https://client-communication-and-feedback.onrender.com/auth/google'; // Redirect to Google OAuth
     };
 
     return (

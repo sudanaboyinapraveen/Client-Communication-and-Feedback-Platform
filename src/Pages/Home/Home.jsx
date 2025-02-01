@@ -22,7 +22,7 @@ function Home() {
       }
 
       // Fetch the home page content (protected route)
-      fetch("http://localhost:5000/home", {
+      fetch("https://client-communication-and-feedback.onrender.com/home", {
         headers: { Authorization: `Bearer ${token}` }, // Send token as Bearer
       })
         .then((response) => {

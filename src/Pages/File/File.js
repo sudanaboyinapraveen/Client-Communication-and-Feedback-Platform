@@ -1,53 +1,4 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
 
-// export default function File() {
-//     const [file, setFile] = useState(null);
-//     const [message, setMessage] = useState('');
-
-//     const handleFileChange = (e) => {
-//         setFile(e.target.files[0]); // Capture selected file
-//     };
-
-//     const handleSubmit = async (e) => {
-//         e.preventDefault();
-//         if (!file) {
-//             setMessage('Please select a file first!');
-//             return;
-//         }
-
-//         // Prepare the form data
-//         const formData = new FormData();
-//         formData.append('file', file);
-
-//         try {
-//             // Send file to backend
-//             const response = await axios.post('http://localhost:5000/upload', formData, {
-//                 headers: { 'Content-Type': 'multipart/form-data' },
-//             });
-
-//             setMessage(response.data.message);
-//         } catch (err) {
-//             setMessage('File upload failed');
-//             console.error(err);
-//         }
-//     };
-
-//     return (
-//         <div>
-//             <h2>File Upload</h2>
-//             <form onSubmit={handleSubmit}>
-//                 <input
-//                     type="file"
-//                     accept="image/*,application/pdf" // Restrict to images or PDFs
-//                     onChange={handleFileChange}
-//                 />
-//                 <button type="submit">Upload</button>
-//             </form>
-//             {message && <p>{message}</p>}
-//         </div>
-//     );
-// }
 
 import React, { useState } from 'react';
 import axios from 'axios';
@@ -106,7 +57,7 @@ export default function File() {
             setUploadProgress(0);
 
             // Axios request with progress indicator
-            const response = await axios.post('http://localhost:5000/upload', formData, {
+            const response = await axios.post('https://client-communication-and-feedback.onrender.com/upload', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
                 onUploadProgress: (progressEvent) => {
                     const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);

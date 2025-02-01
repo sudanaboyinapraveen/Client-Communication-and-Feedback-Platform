@@ -45,7 +45,7 @@ const Report = () => {
     // Fetch data from the backend
     const fetchUsers = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/users'); // Replace with your API URL
+            const response = await fetch('https://client-communication-and-feedback.onrender.com/api/users'); // Replace with your API URL
             if (!response.ok) {
                 throw new Error('Failed to fetch users');
             }

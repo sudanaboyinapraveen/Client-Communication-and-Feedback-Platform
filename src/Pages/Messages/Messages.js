@@ -8,7 +8,7 @@ const Messages = () => {
 
   // Fetch conversations from the API (replace with real API call in production)
   useEffect(() => {
-    fetch('http://localhost:5000/conversations')
+    fetch('https://client-communication-and-feedback.onrender.com/conversations')
       .then((response) => response.json())
       .then((data) => setConversations(data));
   }, []);
